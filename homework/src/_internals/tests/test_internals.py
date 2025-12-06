@@ -1,13 +1,13 @@
-import sys
 import os
 import shutil
+import sys
 
 from ..count_words import count_words
+from ...wordcount import parse_args
 from ..preprocess_lines import preprocess_lines
+from ..read_all_lines import read_all_lines
 from ..split_into_words import split_into_words
 from ..write_word_counts import write_word_counts
-from ..read_all_lines import read_all_lines
-from ...wordcount import parse_args, preprocess_lines
 
 
 def test_parse_args():
@@ -31,6 +31,7 @@ def test_read_all_lines():
         "Analytics refers to the systematic computational analysis of data" in line
         for line in lines
     )
+
 
 def test_preprocess_lines():
     lines = ["  Hello, World!  ", "Python is GREAT."]
@@ -70,5 +71,3 @@ def test_write_word_counts():
 
     # Clean up
     shutil.rmtree(output_folder)
-
-    
